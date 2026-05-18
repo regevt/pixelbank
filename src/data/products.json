@@ -1,0 +1,160 @@
+{
+  "products": [
+    {
+      "barcode": "5000112658873",
+      "price": 90,
+      "display_price": "0.90",
+      "description": "Coca Cola Zero, can 33 cl"
+    },
+    {
+      "barcode": "8712800196440",
+      "price": 110,
+      "display_price": "1.10",
+      "description": "Chocomel, can 25 cl"
+    },
+    {
+      "barcode": "4337182201458",
+      "price": 75,
+      "display_price": "0.75",
+      "description": "Spuitwater, bottle 50 cl"
+    },
+    {
+      "barcode": "4337182093381",
+      "price": 75,
+      "display_price": "0.75",
+      "description": "Plat water, bottle 50 cl"
+    },
+    {
+      "barcode": "5000112646719",
+      "price": 300,
+      "display_price": "3.00",
+      "description": "Coca-Cola Zero, bottle 150 cl"
+    },
+    {
+      "barcode": "4029764001883",
+      "price": 115,
+      "display_price": "1.15",
+      "description": "Club-Mate Cola, bottle 33 cl"
+    },
+    {
+      "barcode": "4029764001401",
+      "price": 140,
+      "display_price": "1.40",
+      "description": "Club-Mate Granat, bottle 50 cl"
+    },
+    {
+      "barcode": "4029764001869",
+      "price": 140,
+      "display_price": "1.40",
+      "description": "Club-Mate Winter-Edition, bottle 50cl"
+    },
+    {
+      "barcode": "4029764001906",
+      "price": 140,
+      "display_price": "1.40",
+      "description": "Club-Mate Zero, bottle 50cl"
+    },
+    {
+      "barcode": "4029764001807",
+      "price": 140,
+      "display_price": "1.40",
+      "description": "Club-Mate, bottle 50 cl"
+    },
+    {
+      "barcode": "5000112545326",
+      "price": 90,
+      "display_price": "0.90",
+      "description": "Coca-Cola, can 33 cl (no deposit)"
+    },
+    {
+      "barcode": "5740700988349",
+      "price": 90,
+      "display_price": "0.90",
+      "description": "Coca-Cola, can 33 cl (no deposit)"
+    },
+    {
+      "barcode": "8710615077206",
+      "price": 50,
+      "display_price": "0.50",
+      "description": "Daelmans Stroopwafel"
+    },
+    {
+      "barcode": "8716100202337",
+      "price": 70,
+      "display_price": "0.70",
+      "description": "Katja Apekoppen"
+    },
+    {
+      "barcode": "40084077",
+      "price": 40,
+      "display_price": "0.40",
+      "description": "Kinder Maxi"
+    },
+    {
+      "barcode": "4001724046196",
+      "price": 550,
+      "display_price": "5.50",
+      "description": "Oetker Ristorante Pizza Wuerstel & Patatine"
+    },
+    {
+      "barcode": "4009233016846",
+      "price": 500,
+      "display_price": "5.00",
+      "description": "Wagner Sensazione Pizza Mozzarella"
+    },
+    {
+      "barcode": "8710401024605",
+      "price": 75,
+      "display_price": "0.75",
+      "description": "Titan (Raket)"
+    },
+    {
+      "barcode": "8718964162758",
+      "price": 150,
+      "display_price": "1.50",
+      "description": "Crappy fietslampje is beter dan niks"
+    },
+    {
+      "barcode": "mdf3mm-wit",
+      "price": 300,
+      "display_price": "3.00",
+      "description": "MDF 600x400x3 wit gelakt "
+    },
+    {
+      "barcode": "mdf4mm",
+      "price": 150,
+      "display_price": "1.50",
+      "description": "MDF 600x400x4"
+    },
+    {
+      "barcode": "populier5mm",
+      "price": 315,
+      "display_price": "3.15",
+      "description": "Populier-timmerplaat 600x400x5"
+    },
+    {
+      "barcode": "hardboard3mm",
+      "price": 65,
+      "display_price": "0.65",
+      "description": "Hardboard 600x400x3"
+    },
+    {
+      "barcode": "8710447032756",
+      "price": 80,
+      "display_price": "0.80",
+      "description": "Ola Perenijsje"
+    },
+    {
+      "barcode": "8712100340666",
+      "price": 55,
+      "display_price": "0.55",
+      "description": "Raket"
+    },
+    {
+      "barcode": "8722700627821",
+      "price": 80,
+      "display_price": "0.80",
+      "description": "Split"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "name": "default",
+      "balance": 0
+    },
+    {
+      "name": "regev",
+      "balance": 1820
+    }
+  ]
+}
