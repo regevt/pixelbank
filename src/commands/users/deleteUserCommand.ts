@@ -18,8 +18,8 @@ export async function handler() {
   try {
     deleteUser(username)
   } catch (error) {
-    logger.error(error as string)
+    logger.withTag('app').error(error as string)
     return
   }
-  logger.log(`Created user: ${green(bold(username))}!`)
+  logger.withTag('app,users').log(`Created user: ${green(bold(username))}!`)
 }

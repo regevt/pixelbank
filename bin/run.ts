@@ -3,7 +3,9 @@ import { stdin as input, stdout as output } from 'node:process'
 import yargs, { CommandModule } from 'yargs'
 import { config } from 'dotenv'
 import { commands } from '../src'
-import { bgBlue, bold, cyan, red } from 'picocolors'
+import { bgBlue, blue, bold, cyan, red } from 'picocolors'
+import { getProducts } from '../src/data/productsDB'
+import { logger } from '../src/logger'
 
 config()
 
@@ -15,6 +17,7 @@ function createCli(argv: string[] | string) {
     See more on https://github.com/kucherenko/cli-typescript-starter`,
     ),
   )
+
   for (const command of commands) {
     run.command(command as CommandModule)
   }
@@ -23,11 +26,34 @@ function createCli(argv: string[] | string) {
 }
 
 async function executeCommand(argv: string[] | string) {
-  await createCli(argv)
+  const initialCli = createCli(argv)
     .demandCommand(1, 'You need at least one command before moving on')
     .help()
     .exitProcess(false)
-    .parseAsync()
+
+  const parsedArgv = await initialCli.parseAsync()
+
+  if (parsedArgv.help || parsedArgv.version) return
+
+  const commandTokens = parsedArgv._ as string[]
+  if (commandTokens.length === 0) return
+
+  const primaryToken = commandTokens[0]
+  const products = await getProducts()
+
+  const product = products.find((prod) => prod.barcode == primaryToken)
+  if (product !== undefined) {
+    output.write('\u001b[1A\u001b[2K')
+    logger.log(`${blue(product.description)} ${blue(product.price)}€`)
+    const fallbackArgs: string[] = ['buy', String(primaryToken)]
+    await createCli(fallbackArgs).exitProcess(false).parseAsync()
+
+    return
+  }
+
+  if (!commands.some((cmd) => cmd.command.split(' ')[0] === primaryToken)) {
+    logger.error(`${primaryToken}: No such product, user, or command`)
+  }
 }
 
 async function startRepl() {
@@ -62,7 +88,7 @@ async function startRepl() {
       await executeCommand(line)
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error)
-      output.write(`${red(message)}\n`)
+      logger.error(`${red(message)}\n`)
     } finally {
       input.resume()
     }
@@ -81,6 +107,6 @@ async function main() {
 
 main().catch((error) => {
   const message = error instanceof Error ? error.message : String(error)
-  output.write(`${red(message)}\n`)
+  logger.error(`${red(message)}\n`)
   process.exitCode = 1
 })

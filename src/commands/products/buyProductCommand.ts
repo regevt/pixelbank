@@ -3,9 +3,10 @@ import { logger } from '../../logger'
 import { bold, green, blue, red } from 'picocolors'
 import { getProducts } from '../../data/productsDB'
 import { getBalance, updateBalance } from '../../data/usersDB'
+import { addTransaction } from '../../data/transactionsDB'
 import { formatPrice } from '../../helpers'
 
-export const command = '! <barcode>'
+export const command = 'buy <barcode>'
 export const describe = 'buy product'
 
 export interface BuyArgv {
@@ -45,10 +46,19 @@ export async function handler(argv: ArgumentsCamelCase<BuyArgv>) {
 
     const delta = balance - foundProduct.price
 
-    logger.log(
-      `${blue(bold('New balance for ' + username))}: ${delta > 0 ? green(bold(formatPrice(delta) + '€')) : red(bold(formatPrice(delta) + '€'))} (Old balance: ${formatPrice(balance)}€, Product price: ${formatPrice(foundProduct.price)}€)`,
-    )
+    addTransaction({
+      user: username,
+      product: foundProduct.description,
+      date: new Date().toISOString(),
+    })
+
+    logger
+      .withTag('test')
+      .withTag('app,users')
+      .log(
+        `${blue(bold('New balance for ' + username))}: ${delta > 0 ? green(bold(formatPrice(delta) + '€')) : red(bold(formatPrice(delta) + '€'))} (Old balance: ${formatPrice(balance)}€, Product price: ${formatPrice(foundProduct.price)}€)`,
+      )
   } catch (error) {
-    logger.error(error as string)
+    logger.withTag('app').error(error as string)
   }
 }

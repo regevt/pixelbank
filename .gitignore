@@ -1,6 +1,6 @@
 # Taken from https://github.com/github/gitignore/blob/main/Node.gitignore
 # and added custom ignores
-
+.DS_Store
 # Logs
 logs
 *.log
@@ -119,3 +119,7 @@ node_modules
 TODO
 
 **/*.vscode
+logs
+
+transactions.json
+users.json

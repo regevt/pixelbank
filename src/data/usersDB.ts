@@ -25,6 +25,8 @@ export async function addUser(username: string): Promise<void> {
     usersList.push({
       name: username,
       balance: 0,
+      updated_at: new Date().toISOString(),
+      created_at: new Date().toISOString(),
     })
 
     // Write the updated memory state back to your users.json file safely
@@ -91,6 +93,7 @@ export async function updateBalance(username: string, newBalance: number): Promi
     }
 
     user.balance = newBalance
+    user.updated_at = new Date().toISOString()
 
     await db.write()
   } catch (error) {

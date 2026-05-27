@@ -78,6 +78,7 @@
     "giget": "^1.2.3",
     "lowdb": "^7.0.1",
     "picocolors": "^1.0.1",
+    "strip-ansi": "^7.2.0",
     "yargs": "^17.7.2"
   },
   "config": {
