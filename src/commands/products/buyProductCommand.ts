@@ -52,13 +52,11 @@ export async function handler(argv: ArgumentsCamelCase<BuyArgv>) {
       date: new Date().toISOString(),
     })
 
-    logger
-      .withTag('test')
-      .withTag('app,users')
-      .log(
-        `${blue(bold('New balance for ' + username))}: ${delta > 0 ? green(bold(formatPrice(delta) + '€')) : red(bold(formatPrice(delta) + '€'))} (Old balance: ${formatPrice(balance)}€, Product price: ${formatPrice(foundProduct.price)}€)`,
-      )
+    logger.log(
+      `${blue(bold('New balance for ' + username))}: ${delta > 0 ? green(bold(formatPrice(delta) + '€')) : red(bold(formatPrice(delta) + '€'))} (Old balance: ${formatPrice(balance)}€, Product price: ${formatPrice(foundProduct.price)}€)`,
+      { user: username, tags: ['users'] },
+    )
   } catch (error) {
-    logger.withTag('app').error(error as string)
+    logger.error(error as string, { tags: ['app'] })
   }
 }

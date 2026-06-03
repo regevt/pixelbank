@@ -1,36 +1,29 @@
 import { createConsola } from 'consola'
 import stripAnsi from 'strip-ansi'
-import { LogEntry } from './types'
-import { JSONFilePreset } from 'lowdb/node'
-
-const appLogDb = JSONFilePreset<LogEntry[]>('./logs/app_log.json', [])
-
-const userLogDb = JSONFilePreset<LogEntry[]>('./logs/users_log.json', [])
+import { LogEntry, LogObjectEntry } from './types'
+import { appLogDb, userLogDb, writeToLog } from './data/logsDB'
 
 export const logger = createConsola({
   reporters: [
     {
       async log(logObj) {
-        // keep normal consola output
-        console.log(...logObj.args)
+        const logItem = logObj as LogObjectEntry
 
-        const message = stripAnsi(logObj.args.map(String).join(' '))
-        const tags = logObj.tag?.split(',').map((t) => t.trim())
+        console.log(logObj.args[0])
+        const message = stripAnsi(logObj.args[0] || '')
+        const tags = logItem.args[1]?.tags
+        const user = logItem.args[1]?.user
 
         const entry: LogEntry = {
           timestamp: new Date().toISOString(),
           level: logObj.level.toString(),
           tag: tags,
+          user,
           message,
         }
 
-        let db
-        if (tags.includes('users')) db = await userLogDb
-        if (tags.includes('app')) db = await appLogDb
-
-        db?.data.push(entry)
-
-        await db?.write()
+        if (tags?.includes('users')) await writeToLog(userLogDb, entry)
+        if (tags?.includes('app')) await writeToLog(appLogDb, entry)
       },
     },
   ],

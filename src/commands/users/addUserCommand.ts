@@ -18,8 +18,8 @@ export async function handler() {
   try {
     addUser(username)
   } catch (error) {
-    logger.withTag('app').error(error as string)
+    logger.error(error as string, { tags: ['app'] })
     return
   }
-  logger.withTag('app,users').log(`Created user: ${green(bold(username))}!`)
+  logger.log(`Created user: ${green(bold(username))}!`, { user: username, tags: ['app', 'users'] })
 }

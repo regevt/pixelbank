@@ -1,3 +1,5 @@
+import { LogObject } from 'consola'
+
 export interface Product {
   barcode: string
   description: string
@@ -23,4 +25,12 @@ export type LogEntry = {
   level: string
   tag?: string[]
   message: string
+  user?: string
+}
+
+export interface LogObjectEntry extends LogObject {
+  args: {
+    user?: string
+    tags?: string[]
+  }[]
 }

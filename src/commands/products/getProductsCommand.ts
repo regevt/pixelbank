@@ -20,6 +20,6 @@ export async function handler() {
 
     logger.log(``)
   } catch (error) {
-    logger.withTag('app').error(error as string)
+    logger.error(error as string, { tags: ['app'] })
   }
 }
