@@ -6,7 +6,7 @@ Rewrite from scratch of [Revbank](https://github.com/revspace/revbank) in Typesc
 - [ ] productID - Add a product to pending transaction
 - [ ] abort - Abort the current transaction
 - [x] adduser - name Create an account
-- [ ] deposit - amount Deposit into an account
+- [x] deposit - amount Deposit into an account
 - [ ] help2 - Advanced usage instructions
 - [ ] undo - transactionID Undo a transaction
 - [ ] unlisted - Buy unlisted product (manual entry)
@@ -19,7 +19,7 @@ Rewrite from scratch of [Revbank](https://github.com/revspace/revbank) in Typesc
 - [ ] give - account amount [reason] Transfer money to user's account
 - [ ] grandtotal - Summary of all accounts
 - [ ] list - List accounts and balances
-- [ ] log - View transaction log
+- [x] log - View transaction log
 - [ ] market - Edit market list
 - [ ] restart - Attempt to restart the RevBank shell
 - [ ] shame - Display Hall of Shame (negative balances)

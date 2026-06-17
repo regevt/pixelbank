@@ -11,7 +11,7 @@ config()
 
 function createCli(argv: string[] | string) {
   const run = yargs(argv)
-  run.usage(
+  run.scriptName('').usage(
     bgBlue(
       `Welcome to the CLI application powered by ${bold(red('cli-typescript-starter'))}!
     See more on https://github.com/kucherenko/cli-typescript-starter`,

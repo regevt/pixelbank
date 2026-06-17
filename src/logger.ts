@@ -9,7 +9,6 @@ export const logger = createConsola({
       async log(logObj) {
         const logItem = logObj as LogObjectEntry
 
-        console.log(logObj.args[0])
         const message = stripAnsi(logObj.args[0] || '')
         const tags = logItem.args[1]?.tags
         const user = logItem.args[1]?.user
