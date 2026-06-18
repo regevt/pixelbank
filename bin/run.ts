@@ -61,7 +61,7 @@ async function startRepl() {
     input.resume()
 
     const repl = createInterface({ input, output })
-    let line = ''
+    let line
 
     repl.on('SIGINT', () => {
       repl.close()
